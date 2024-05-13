@@ -1,0 +1,18 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-coordi">
+    <a class="navbar-brand" href="{% url 'index' %}">Coordi<span>GO</span></a>
+    <ul class="navbar-nav bd-navbar-nav flex-row">
+        <li class="nav-item">
+            <a class="nav-link ghostwhite {% if 'classroom' in request.path %}active{% endif %}" href="{% url 'classroom' %}">My Classroom</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link ghostwhite {% if 'library' in request.path %}active{% endif %}" href="{% url 'library' %}">GO Library</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link ghostwhite {% if 'assignments' in request.path %}active{% endif %}" href="{% url 'assignments' %}">My Assignments</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link ghostwhite" href="{% url 'logout' %}">Logout</a>
+        </li>
+    </ul>
+    <div class="nav-rounded-bottom"></div>
+</nav>

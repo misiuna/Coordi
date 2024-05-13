@@ -1,0 +1,16 @@
+{% extends "coordi/layout.html" %}
+
+{% block nav %}
+    {% include "coordi/navTeacher.html" %}
+{% endblock %}
+
+{% load static %}
+
+{% block body %} 
+<h1>custom</h1>
+
+{% if load == "twoCol" %}
+    {% include "coordi/twoCol.html" %}
+{% endif %}
+
+{% endblock %}

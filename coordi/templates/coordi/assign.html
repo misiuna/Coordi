@@ -1,0 +1,21 @@
+<h2>Assign to Students</h2>
+<div class="grid-row-wrapper-assign">
+    <form <!-- action="{% url 'assign' template.id %}" method="post" -->>
+        {% csrf_token %}
+        <div class="assign">
+            <div class="student-check">
+                <input type="checkbox" class="form-check-input" id= "allStudents" name="student" value="allStudents">
+                <label class="form-check-label" for="{{student.last_name}}"> All Students </label>
+            </div>
+            {% for student in students %}
+                <div class="student-check form-group">
+                    <input type="checkbox" class="form-check-input" id="{{student.last_name}}" name="student" value="{{student.first_name}}">
+                    <label class="form-check-label" for="{{student.last_name}}"> {{student.first_name}} {{student.last_name}}</label>
+                </div>
+            {% endfor %} 
+        </div>
+        <div class="action-btns form-group">
+            <input id="finalize-table" class="btn btn-action btn-action-primary" type="submit" value="ASSIGN">    
+        </div>
+    </form>
+</div>

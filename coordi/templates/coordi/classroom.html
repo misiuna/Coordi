@@ -1,0 +1,54 @@
+{% extends "coordi/layout.html" %}
+
+{% block nav %}
+    {% include "coordi/navTeacher.html" %}
+{% endblock %}
+
+{% block body %}
+    <h1>My Classroom</h1>
+    <div class="grid-table-wrapper">
+        <div class="grid-row-wrapper">
+            <p>Student Name</p>
+            <p>Assignments</p>
+            <p>Ready to Grade</p>
+            <p>Progress</p>
+        </div>
+        {% for student in students %}
+            <div class="grid-row-wrapper">
+                <p>{{student.first_name}} {{student.last_name}}</p>
+
+                <p>
+                    <a href="{% url 'assignments_custom' student.id %}">{{student.count}} assigned</a>
+                </p>
+
+                {% if student.toGrade > 0 %}
+                    <p>
+                        <a href="{% url 'grades' %} "><span class="notification">{{student.toGrade}}</span> to Grade</a>
+                    </p>
+                {% else %}
+                    <p>
+                        <a href="{% url 'grades' %} "><span>{{student.toGrade}}</span> to Grade</a>
+                    </p>
+                {% endif %}
+                
+                <div class="progress">
+                    {% if student.progress < 25 %}
+                        <div class="progress-bar w-0" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    {% endif %}
+                    {% if student.progress >= 25 and student.progress < 50 %}
+                        <div class="progress-bar w-25" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                    {% endif %}
+                    {% if student.progress >= 50 and student.progress < 75 %}
+                        <div class="progress-bar w-50" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                    {% endif %}
+                    {% if student.progress >= 75 and student.progress < 100 %}
+                        <div class="progress-bar w-75" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                    {% endif %}
+                    {% if student.progress == 100 %}
+                        <div class="progress-bar w-100" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

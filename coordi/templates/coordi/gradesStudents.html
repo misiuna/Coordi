@@ -1,0 +1,23 @@
+{% extends "coordi/layout.html" %}
+
+{% block nav %}
+    {% include "coordi/navStudent.html" %}
+{% endblock %}
+
+{% block body %}
+    <h1>My Grades</h1>
+    <div class="grid-table-wrapper">
+        <div class="grid-row-wrapper">
+            <p>Assignment Name</p>
+            <p>Grade</p>
+            <p>Graded on</p>
+        </div>
+        {% for assignment in assignments %}
+            <div class="grid-row-wrapper">
+                <p>{{assignment.go_id}}</p>
+                <p>{{assignment.grade}}</p>
+                <p>{{assignment.graded}}</p>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

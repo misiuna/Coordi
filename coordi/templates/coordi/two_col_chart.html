@@ -1,0 +1,56 @@
+{% extends "coordi/layout.html" %}
+
+{% block nav %}
+    {% include "coordi/navTeacher.html" %}
+{% endblock %}
+
+{% load static %}
+
+{% block body %}
+    <div class="go-content-wrapper"> 
+        <h1>Two Columns Graphic Organizer</h1>
+        <p class="mb0">To author the Two Column Graphic Organizer start with the instructional text and the title for each column.</p>
+        <p class="inst-delete">Next set the default number of rows for student to have for their answers. When done, click the "Finalize" button to preview your custom Graphic Organizer.</p>
+        <div class="go-table-wrapper">
+            <div class="instruction-btn-wrapper">
+                <input id="instruction" name="instruction" placeholder="Enter instruction text for your custom GO">
+            </div>
+            <table id="twoCol">
+                <tr>
+                    <th id="col1-title" data-number="1">
+                        <p>Title for this column</p> 
+                        <button class="btn btn-edit">edit title 1</button>
+                    </th>
+                    <th id="col2-title" data-number="2">
+                        <p>Title for this column</p> 
+                        <button class="btn btn-edit">edit title 2</button>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea name="answer" placeholder="Enter your respose 1 for column 1"></textarea>
+                    </td> 
+                    <td>
+                        <textarea name="answer" placeholder="Enter your respose 1 for column 2"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea name="answer" placeholder="Enter your respose 2 for column 1"></textarea>
+                    </td> 
+                    <td>
+                        <textarea name="answer" placeholder="Enter your respose 2 for column 2"></textarea>
+                    </td>
+                </tr>
+            </table>
+            <div class="action-btns">
+                <button id="add-row" class="btn btn-action btn-action-secondary">Add A Row</button>
+                <button id="delete-row" class="btn btn-action btn-action-secondary">Delete A Row</button>
+                <button id="finalize-table" class="btn btn-action btn-action-primary">Finalize</button>
+            </div>
+            
+            
+        </div>
+    </div>
+    <script src="{% static 'coordi/two-col.js' %}"></script>
+{% endblock %}

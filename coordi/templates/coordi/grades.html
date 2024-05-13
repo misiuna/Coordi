@@ -1,0 +1,24 @@
+{% extends "coordi/layout.html" %}
+
+{% block nav %}
+    {% include "coordi/navTeacher.html" %}
+{% endblock %}
+
+{% block body %}
+    <h1>Start Gradeing</h1>
+    <div class="grid-dash">
+        {% if not toGrade %}
+            <p class="message">No assignments to grade yet.</p>
+        {% endif %}
+        {% for assignment in toGrade %}
+        <div>
+            <p>{{assignment.student_first}} {{assignment.student_last}}</p>
+            <h2>{{assignment.title}}</h2>
+            <p>Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor sit amet consectetur.</p>
+            <button class="btn btn-primary btn-teacher">
+                <a href="{% url 'grade_template' assignment.id %}">Grade</a>
+            </button>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %} CoordiGO {% endblock %}</title>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://kit.fontawesome.com/2f058986cf.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="{% static 'coordi/styles.css' %}">
+    </head>
+    {% if user.is_authenticated %}
+        <body style="background: whitesmoke;">
+            <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-coordi">
+                <a class="navbar-brand" href="{% url 'index' %}">Coordi<span>GO</span></a>
+                <ul class="navbar-nav bd-navbar-nav flex-row">
+                    <li class="nav-item">
+                        <a class="nav-link ghostwhite {% if 'assignments' in request.path %}active{% endif %}" href="{% url 'assignments_student' %}">My Assignments</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link ghostwhite {% if 'grades' in request.path %}active{% endif %}" href="{% url 'grades_student' %}">My Grades</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link ghostwhite {% if 'profile' in request.path %}active{% endif %}" href="{% url 'profile_student' %}"><b>{{user.username}}</b></a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link ghostwhite" href="{% url 'logout' %}">Logout</a>
+                    </li>
+                </ul>
+                <div class="nav-rounded-bottom" style="background: whitesmoke;"></div>
+            </nav> -->
+
+    {% else %}
+        <body style="background: whitesmoke;">   
+            <div ></div> 
+            <nav class="navbar navbar-expand-lg navbar-dark bg-coordi">
+                <a class="navbar-brand" href="#">Coordi<span>GO</span></a> 
+                <div class="nav-rounded-bottom" style="background: whitesmoke;"></div>
+            </nav>  
+    {% endif %}
+    
+    {% block body %}
+    {% endblock %}
+     
+    </body>
+</html>

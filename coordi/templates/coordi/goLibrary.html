@@ -1,0 +1,61 @@
+{% extends "coordi/layout.html" %}
+
+{% block nav %}
+    {% include "coordi/navTeacher.html" %}
+{% endblock %}
+
+{% load static %}
+
+{% block body %}
+    <h1>Build Your Graphic Organizers</h1>
+    <!-- Graphic Organizer View Switch Nav -->
+    <ul class="go-nav"">
+        <li class="go-view-switch" data-page="go-library-view">Graphic Organizers Library</li>
+        <li class="go-view-switch" data-page="go-custom-view">Your Graphic Organizers</li>
+    </ul>
+    <!-- Graphic Organizer Library View-->
+    <div class="view" id="go-library-view">
+        <p>Choose a Graphic Organier and create asset for your classroom.</p>
+        <ul class="go-wrapper">
+            <li class="pending">
+                <a>Flowchart</a>
+            </li>
+            <li class="pending">
+                <a>KWL Chart</a>
+            </li>
+            <li>
+                <a href="{% url 'two_col_chart' %}">Two Column Chart</a>
+            </li>
+            <li class="pending">
+                <a>Cause and Effect</a>
+            </li>
+            <li>
+                <a class="pending">Pyramid</a>
+            </li>
+            <li>
+                <a class="pending">Table</a>
+            </li>
+            <li>
+                <a class="pending">Problem-Solution</a>
+            </li>
+            <li>
+                <a class="pending">Web Diagram</a>
+            </li>
+            <li>
+                <a class="pending">Timeline</a>
+            </li>
+        </ul>
+    </div>
+    <!-- Custome Graphic Organizer View-->
+    <div class="view" id="go-custom-view">
+        <p>Choose one of your Cusom Graphic Organizers and assign it to your students.</p>
+        <ul class="go-wrapper">
+            {% for custom in customLibrary %}
+                <li>
+                    <a href="{% url 'custom' custom.id %}">{{custom.name}}</a>
+                </li>
+            {% endfor %}
+        </ul>    
+    </div>
+    <script src="{% static 'coordi/goLibrary.js' %}"></script>
+{% endblock %}

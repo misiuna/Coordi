@@ -1,0 +1,85 @@
+{% extends "coordi/layout.html" %}
+
+{% block nav %}
+    {% include "coordi/navTeacher.html" %}
+{% endblock %}
+
+{% block body %}
+<p>Submitted by {{student.first_name}} {{student.last_name}}</p>
+    <h1>{{data.go_id}}</h1>
+    <div class="go-table-wrapper">
+        <table id="twoCol" class="{{template.id}}">
+            <tr id="col1-title" data-number="1">
+                <th>
+                    <p>{{template.col1Title}}</p> 
+                   
+                </th>
+                <th>
+                    <p>{{template.col2Title}}</p> 
+                </th>
+            </tr>
+            <!-- insert for loop for the number of tr-s -->
+            
+            
+            <tr>   
+                {% for answer in answers %}       
+                <td>
+                        <p>{{ answer }}</p>
+
+                </td>  
+                {% endfor %}  
+            </tr>
+            <tr>   
+                {% for answer in answers1 %}       
+                <td>
+                        <p>{{ answer }}</p>
+
+                </td>  
+                {% endfor %}  
+            </tr>
+            
+            <tr>   
+                {% for answer in answers2 %} 
+                    {% if answer != "None" %}
+                        <td>
+                                <p>{{ answer }}</p>
+
+                        </td>  
+                    {% endif %}
+                {% endfor %}  
+            </tr>
+            <tr>   
+                {% for answer in answers3 %}   
+                    {% if answer != None %}    
+                        <td>
+                                <p>{{ answer }}</p>
+
+                        </td>  
+                {% endif %}
+                {% endfor %}  
+            </tr>
+            
+        </table>
+        <form method="post" href="{% url 'grade_template' assignment.id %}">
+            {% csrf_token %}
+            <div class="form-group saveAs-btn-wrapper gap20">
+                <select class="form-select" id="grade" name="grade" type="select">
+                    <option selected>Choose the grade</option>
+                    <option value="A">90-100%</option>
+                    <option value="B">80-89%</option>
+                    <option value="C">70-79%</option>
+                    <option value="D">60-69%</option>
+                    <option value="E">0-59%</option>
+                </select>
+                <button type="submit" name="gradeSubmit" class="btn btn-action btn-action-primary btn-teacher">
+                    Grade
+                </button>
+                
+            </div>
+        </form>
+        {% if message %}
+            <p class="error">{{message}}</p>
+        {% endif %}
+    </div>  
+    
+{% endblock %}

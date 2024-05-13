@@ -1,0 +1,40 @@
+{% extends "coordi/layout.html" %}
+
+{% block nav %}
+    {% include "coordi/navStudent.html" %}
+{% endblock %}
+
+{% block body %}
+    <h1>Good {% if now < 12 %} Morning{% else %} Afternoon{% endif %}, {{user.username}}</h1>
+    <div class="grid-dash">
+        <div>
+            {% if newAssignments > 0 %}
+                <p class="upper"><span class="notification">{{newAssignments}}</span> New Assignments</p>
+            {% endif %}
+            {% if newAssignments == 0 %}
+                <p><b>{{newAssignments}}</b> New Assignments</p>
+            {% endif %}
+            <h2>My Assignments</h2>
+            <p>Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor sit amet consectetur.</p>
+            <button class="btn btn-primary btn-teacher">
+                <a href="{% url 'assignments_student' %}">Start Working</a>
+            </button>
+        </div>
+        <div>
+            <p class="upper"><span class="notification">{{newGrades}}</span> New Grades</p>
+            <h2>My Grades</h2>
+            <p>Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor sit amet consectetur.</p>
+            <button class="btn btn-primary btn-teacher">
+                <a href="{% url 'grades_student' %}">Review Grades</a>
+            </button>
+        </div>
+        <div>
+            <p class="upper">Holistic Insights & Data</p>
+            <h2>My Profile</h2>
+            <p>Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor sit amet consectetur.</p>
+            <button class="btn btn-primary btn-teacher">
+                <a href="{% url 'profile_student' %}">Evaluate</a>
+            </button>
+        </div>
+    </div>
+{% endblock %}

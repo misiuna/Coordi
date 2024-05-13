@@ -1,0 +1,58 @@
+{% extends "coordi/layout.html" %}
+
+{% block nav %}
+    {% include "coordi/navStudent.html" %}
+{% endblock %}
+
+{% load static %}
+
+{% block body %}
+    <h1>My Assignments</h1>
+    <!-- Assignment View Switch Nav -->
+    <ul class="go-nav"">
+        <li class="go-view-switch" data-page="go-library-view">{{currentCount}} {% if currentCount == 0 %}Current Assignments {% endif %} {% if currentCount == 1 %}Current Assignment {% endif %}{% if currentCount > 1 %}Current Assignments {% endif %} </li>
+        <li class="go-view-switch" data-page="go-custom-view">{{pastCount}} {% if pastCount == 0 %}Past Assignments {% endif %} {% if pastCount == 1 %}Past Assignment {% endif %}{% if pastCount > 1 %}Past Assignments {% endif %}</li>
+    </ul>
+    <!-- New Assignments View-->
+    <div class="view" id="go-library-view">
+        <div>
+            {% if currentCount == 0 %}
+                <p class="message">No assignments yet, come back later.</p>
+            {% endif %}
+            <ul class="grid-assignments">
+                {% for assignment in current %}
+                        <li>
+                            <div>
+                                <h2>{{assignment.go_id}}</h2>
+                                <p>Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor sit amet consectetur.</p>
+                                <button class="btn btn-primary btn-teacher">
+                                    <a href="{% url 'custom' assignment.go_id.id %}">Start Assignment</a>
+                                </button>
+                            </div>
+                        </li>
+                {% endfor %}
+            </ul>
+        </div>    
+    </div>
+    
+     <!-- Past Assignments View-->
+    <div class="view" id="go-custom-view">
+        <div class="grid-assignments">
+            {% if pastCount == 0 %}
+                <p class="message">No past assignments yet, come back later.</p>
+            {% endif %}
+            <ul>
+                {% for assignment in past %}
+                    <li>
+                        <div>
+                            <p>Grade: {{assignment.grade}}</p>
+                            <h2>{{assignment.go_id}}</h2>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <script src="{% static 'coordi/goLibrary.js' %}"></script>
+{% endblock %}

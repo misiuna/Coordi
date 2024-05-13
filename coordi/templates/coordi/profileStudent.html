@@ -1,0 +1,36 @@
+{% extends "coordi/layout.html" %}
+
+{% block nav %}
+    {% include "coordi/navStudent.html" %}
+{% endblock %}
+
+{% block body %}
+    <h1>{{user.first_name}} {{user.last_name}}</h1>
+        <ul class="grid-profile">
+            <li>
+                <div>
+                    <h2>Total Assignments</h2>
+                    <p>{{assignments.count}}</p>    
+                </div>
+            </li>
+            <li>
+                <div>
+                    <h2>Total Submissions</h2>
+                    <p>{{submissions.count}}</p>    
+                </div>
+            </li>
+            <li>
+                <div>
+                    <h2>Total Grades</h2>
+                    <p>{{grades.count}}</p>    
+                </div>
+            </li>
+            <li>
+                <div>
+                    <h2>Avarage Grade</h2>
+                    <p>{{avgGrade}}</p>    
+                </div>
+            </li>
+        </ul>
+</div>
+{% endblock %}

@@ -1,0 +1,68 @@
+
+{% extends "coordi/layout.html" %}
+
+{% block nav %}
+    {% include "coordi/navStudent.html" %}
+{% endblock %}
+
+{% load static %}
+
+{% block body %}
+    <div class="go-content-wrapper">
+        <h1>{{template.name}}</h1>
+        <p>{{template.instruction}}</p>
+        <div class="go-table-wrapper">
+            <table id="twoCol" class="{{template.id}}">
+                <tr id="col1-title" data-number="1">
+                    <th>
+                        <p>{{template.col1Title}}</p> 
+                       
+                    </th>
+                    <th>
+                        <p>{{template.col2Title}}</p> 
+                    </th>
+                </tr>
+                <!-- insert for loop for the number of tr-s -->
+                {% for i in range %}
+                <tr>
+                    <td>
+                        <textarea name="answer{{i}}" class="answer{{i}}" placeholder="Enter your respose {{i}} for column 1"></textarea>
+                    </td> 
+                    <td>
+                        <textarea name="answer{{i}}1" class="answer{{i}}1" placeholder="Enter your respose {{i}} for column 2"></textarea>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        <!-- TEACHER SIDE -->
+        {% if isTeacher %}
+            <h2>Assign to Students</h2>
+            <div class="grid-row-wrapper-assign">
+                <form action="{% url 'assign' template.id %}" method="post">
+                    {% csrf_token %}
+                    <div class="assign">
+                        <div class="student-check">
+                            <input type="checkbox" class="form-check-input" id= "allStudents" name="student" value="allStudents">
+                            <label class="form-check-label" for="{{student.last_name}}"> All Students </label>
+                        </div>
+                        {% for student in students %}
+                            <div class="student-check form-group">
+                                <input type="checkbox" class="form-check-input" id="{{student.last_name}}" name="student" value="{{student.first_name}}">
+                                <label class="form-check-label" for="{{student.last_name}}"> {{student.first_name}} {{student.last_name}}</label>
+                            </div>
+                        {% endfor %} 
+                    </div>
+                    <div class="action-btns form-group">
+                        <input id="finalize-table" class="btn btn-action btn-action-primary" type="submit" value="ASSIGN">    
+                    </div>
+                </form>
+            </div>
+        {% endif %}
+
+        <!-- STUDENT SIDE -->
+        {% if not isTeacher %}
+            <button id="student-submit" class="btn btn-action btn-action-primary">Submit</button>
+        {% endif %}
+    </div>
+    <script src="{% static 'coordi/two-col.js' %}"></script>
+{% endblock %}

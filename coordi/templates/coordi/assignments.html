@@ -1,0 +1,40 @@
+{% extends "coordi/layout.html" %}
+
+{% block nav %}
+    {% include "coordi/navTeacher.html" %}
+{% endblock %}
+
+{% block body %}
+    <h1>My Assignments</h1>
+    <div class="grid-table-wrapper">
+        <div class="grid-row-wrapper">
+            <p>Assignment Name</p>
+            <p>Assignee</p>
+            <p>Assigned</p>
+            <p>Status</p>
+        </div>
+        {% for assignment in assignments %}
+            <div class="grid-row-wrapper">
+                <p>{{assignment.go_id}}</p>
+                <p>{{assignment.student_id}}</p>
+                <p>{{assignment.assigned}}</p>
+
+                {% if not assignment.completed %}
+                    <p> in progress </p>
+                {% endif %}
+
+                {% if assignment.completed and not assignment.graded %}
+                    <p>
+                        <a href="{% url 'grades' %}"> ready to grade </a>
+                    </p>
+                {% endif %}
+
+                {% if assignment.graded %}
+                    <p class="success"><i class="fa-regular fa-circle-check"></i> grade: {{assignment.grade}}</p>
+                {% endif %}
+
+                
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

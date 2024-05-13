@@ -1,0 +1,528 @@
+/* teacher colors */
+:root {
+    --color-top-nav: #16769d;
+    --color-login-gray: #d2cfc1;
+
+    --color-teacher-classtoom: #F6E2A8;
+    --color-go-library: #BBECFD;
+    --color-go-blue-light: #E2F6FE;
+    --color-assignments-teacher: #D0E9BA;
+    --color-teacher-button: #2F2965;
+}
+
+.ghostwhite {
+    color: ghostwhite !important;
+}
+
+.classroom-color {
+    background: var(--color-teacher-classtoom);
+}
+
+.go-library-color {
+    background-color: var(--color-go-library);
+}
+
+.grid-two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+body {
+    background: white;
+    margin: 3%;
+}
+
+nav {
+    margin: -3.1% -3.1% 3%;
+    position: relative;
+    padding-bottom: 20px !important;
+}
+
+.navbar-nav {
+    gap: 20px;
+    margin-left: auto;
+}
+
+ 
+.active {
+    color: wheat !important;
+    font-weight: 400 !important;
+}
+
+.bg-coordi {
+    background: var(--color-top-nav);
+    padding: .5rem 3%;
+}
+
+.nav-rounded-bottom {
+    height: 40px;
+    width: 100vw;
+    background: white;
+    position: absolute;
+    bottom: -20px;
+    border-radius: 15px;
+    left: 0px;
+}
+
+h1 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+
+h2 {
+    font-size: calc(1rem + .5vw);
+    color: var(--color-teacher-button);
+    margin-top: 20px;
+}
+
+
+
+p {
+    font-size: 18px;
+    max-width: 750px;
+}
+
+.login-wrapper {
+    margin: auto;
+    border: 1px solid var(--color-login-gray);
+    padding: 40px;
+    width: fit-content;
+}
+
+.login-wrapper h1 {
+    font-weight: 100;
+    font-size: 1.8rem;
+}
+
+button, input {
+    width: -webkit-fill-available;
+}
+
+.saveAs-btn-wrapper {
+    display: flex;
+    width: -webkit-fill-available;
+}
+
+.btn-teacher,
+.btn-edit,
+.btn-action,
+.btn-assign {
+    color: white;
+    background: var(--color-teacher-button);
+    border-radius: 12px;
+    padding: 3px;
+    font-size: 16px;
+    letter-spacing: 0.3px;
+}
+
+.btn-edit,
+.btn-action,
+.btn-assign {
+    color: black;
+    border: 1px solid var(--color-teacher-button);
+    background: white;
+    width: max-content;
+    padding: 5px 25px;
+    font-weight: 600;  
+    text-wrap: nowrap; 
+}
+
+.btn-action,
+.btn-assign {
+    font-weight: 600;
+    font-size: 18px;    
+}
+
+
+.btn-action-primary,
+.btn-assign-primary {
+    background: var(--color-top-nav);
+    color: white;
+}
+
+.btn a {
+    color: white;
+    text-decoration: none;
+}
+
+.save-input {
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+    padding-left: 12px;
+    border: 1px solid black;
+}
+
+.btn-saveAs {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    background: var(--color-go-blue-light);
+}
+
+.btn-action-primary:active,
+.btn-action-primary:hover,
+.btn-assign-primary:active,
+.btn-assign-primary:hover {
+    color: white;
+}
+
+.btn-edit,
+
+.btn-assign-secondary {
+    background: var(--color-go-blue-light);
+}
+
+.btn-action-secondary {
+    background: white;
+    border: 1px solid var(--color-teacher-button);
+}
+
+.nav-link {
+    padding: 15px;
+    font-weight: 100;
+}
+
+.grid-dash,
+.grid-profile,
+.grid-assignments {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.grid-profile {
+    grid-template-columns: 1fr 1fr 1fr 1fr; 
+    list-style-type: none;
+    padding-left: 0px;
+}
+
+.grid-assignments,
+.grid-profile ul,
+.grid-assignments ul {
+    padding-left: 0px;
+}
+
+.grid-profile ul li,
+.grid-assignments,
+.grid-assignments ul li {
+    list-style-type: none;
+}
+
+.grid-dash p:first-child,
+.grid-assignments p:first-child {
+    margin-bottom: 0px;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 300;
+}
+
+.grid-profile h2,
+.grid-dash h2,
+.grid-assignments h2 {
+    font-size: .9rem;
+    font-weight: 600;
+}
+
+.grid-profile h2 {
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.grid-profile div,
+.grid-dash div,
+.grid-assignments div {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.grid-profile div {
+    background: var(--color-assignments-teacher);
+}
+
+.grid-profile p {
+    font-weight: 600;
+    font-size: xx-large;
+    text-align: center;
+} 
+
+.grid-dash div:first-child,
+.grid-assignments div {
+    background: var(--color-teacher-classtoom);
+}
+
+.grid-dash div:nth-child(2) {
+    background: var(--color-go-library);
+}
+
+.grid-dash div:last-child {
+    background: var(--color-assignments-teacher);
+}
+
+.grid-dash button
+.grid-assignments button {
+    margin-top: auto;
+}
+
+.grid-dash button a,
+.grid-assignments button a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Graphic Organizers */
+.go-content-wrapper h1 {
+    margin-bottom: 10px;
+}
+
+.go-content-wrapper p {
+    margin-bottom: 40px;
+}
+
+.view p:first-child {
+    margin-left: 2%;
+}
+
+.go-nav {
+    border-top: 1px solid gray; 
+    border-bottom: 1px solid gray; 
+    padding: 15px 0px 0px; 
+    margin-bottom: 20px;
+    display: flex; 
+    flex-direction: row; 
+    list-style-type: none; 
+}
+
+.go-nav li {
+    font-weight: 400;
+    border-bottom: 4px solid var(--color-top-nav);
+    margin-right: 20px; 
+    padding: 0px 2% 10px;
+}
+
+.go-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 12px;
+    padding: 0px;
+    margin-top: 30px;
+    max-width: 850px;
+}
+
+.go-wrapper li {
+    color: black;
+    text-align: center;
+    padding: 3px 10px;
+    background-color: var(--color-go-library);
+    border-radius: 20px;
+    list-style-type: none;
+    border: 1px solid var(--color-top-nav);
+    transition: background-color 0.2s ease-in-out;
+}
+
+.go-wrapper li a {
+    display: block;
+    text-align: center;
+    font-size: .9em;
+    font-weight: 500;
+    color: black;
+    text-decoration: none;
+    padding: 5px 20px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.go-wrapper li:hover {
+    background: white;
+}
+
+.go-wrapper li a:hover {
+    color: var(--color-main);
+    background: white;
+    font-weight: 600;
+}
+
+.go-table-wrapper {
+    max-width: 750px;
+}
+
+/* Two Column Chart */
+
+
+#twoCol {
+    width: 100%;
+    border-spacing: 0px;
+    margin-bottom: 10px;
+    margin-top: 1em;
+}
+
+#twoCol th {
+    border: 2px solid var(--color-teacher-button);
+    text-align: left;
+    padding: 15px 15px 10px;
+    color: var(--color-teacher-button);
+    font-size: 1.1rem;
+}
+
+#twoCol th p {
+    margin-bottom: 5px;
+    font-size: 22px;
+}
+
+#twoCol td {
+    border: 2px solid var(--color-teacher-button);
+    padding: 10px;
+}
+
+textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 5px;
+}
+
+.action-btns {
+    display: flex;
+    gap: 15px;
+}
+
+.action-btns btn {
+    display: inline-flex;
+}
+
+.mt20 {
+    margin-bottom: 20px;
+}
+
+/* MY CLASSROOM */
+.grid-table-wrapper {
+    display: grid;
+    grid-template-rows: auto;
+}
+
+.grid-table-wrapper div:first-child {
+    font-weight: 600;
+    font-size: 2.2rem;
+    border-top: 1px solid black;
+    background: var(--color-go-blue-light);
+}
+
+.progress-bar {
+    background: var(--color-top-nav) !important;
+    border: none !important;
+}
+
+.grid-table-wrapper p:not(:first-child) {
+    text-align: center;
+}
+
+.grid-row-wrapper,
+.grid-row-wrapper-assign {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    border-bottom: 1px solid black;
+    padding: 15px;
+    gap: 15px;
+}
+
+.grid-row-wrapper-assign {
+    grid-template-columns: 1fr 1fr;
+    border-bottom: none;
+    padding: 15px 0px;
+}
+
+.grid-row-wrapper p {
+    margin-bottom: 0px;
+}
+
+.assign {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 750px;
+    width: 100vw;
+    gap: 15px;
+    padding-bottom: 20px;
+}
+
+.student-check {
+    display: flex;
+    flex-direction: row;
+    padding: 5px 10px;
+    border: 1px solid darkgray;
+    border-radius: 9px;
+    margin: 0px;
+}
+
+.assign div input {
+    width: 20px;
+    margin-left: 0px;
+}
+
+.assign div label {
+    width: -webkit-fill-available;
+    margin-bottom: 0px;
+    text-align: left;
+    margin-left: 30px;
+    align-items: center;
+    display: flex;
+}
+
+.success {
+    margin-bottom: 0 !important;
+    color: green;
+    font-size: 22px;
+}
+
+.error {
+    color: red;
+    font-weight: 500;
+    font-size: 26px;
+}
+
+.message {
+    text-transform: none !important;
+    font-size: initial !important;
+}
+
+.dash-notification,
+.notification {
+    background: red;
+    color: white;
+    display: inline-flex;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5px;
+    font-weight: 600;
+}
+
+.dash-notification {
+    position: absolute;
+    right: -10px;
+    top: -10px;
+}
+
+.fa-regular {
+    margin-right: 10px;
+}
+
+.relative {
+    position: relative;
+}
+
+.gap20 {
+    gap: 20px;
+}
+
+.mb0 {
+    margin-bottom: 0px !important;
+}
+
+.upper {
+    text-transform: uppercase;
+}
+
+
+

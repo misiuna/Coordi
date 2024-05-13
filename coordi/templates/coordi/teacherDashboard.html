@@ -1,0 +1,40 @@
+{% extends "coordi/layout.html" %}
+
+{% block nav %}
+    {% include "coordi/navTeacher.html" %}
+{% endblock %}
+
+{% block body %}
+    <h1>Good {% if now < 12 %} Morning {% else %} Afternoon {% endif %} {{user.username}},</h1>
+    <div class="grid-dash">
+        <div>
+            <p>Insights</p>
+            <h2>My Classroom</h2>
+            <p>Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor sit amet consectetur.</p>
+            <button class="btn btn-primary btn-teacher">
+                <a href="{% url 'classroom' %}">Student Profiles</a>
+            </button>
+        </div>
+        <div>
+            <p>Get Prepeared</p>
+            <h2>GO Library</h2>
+            <p>Review content and materials for today's lesson and assign Graphic Organizers to your students.</p>
+            <button class="btn btn-primary btn-teacher">
+                <a href="{% url 'library' %}">Get Ready</a>
+            </button>
+        </div>
+        <div class="relative">
+            
+            <p>Assignments</p>
+            <h2>{{toGradeCount}} Assignments to Grade</h2>
+            <p>Wilson Dokidis, Leo Aminoff, Emery Korsgaard hace submitted assignments for you to grade</p>
+            <button class="btn btn-primary btn-teacher">
+                <a href="{% url 'grades' %}">Review</a>
+            </button>
+            {% if toGradeCount > 0 %}
+                <p class="dash-notification">{{toGradeCount}}</p>
+            {% endif %}
+            
+        </div>
+    </div>
+{% endblock %}
