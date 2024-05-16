@@ -1,0 +1,10 @@
+asgiref==3.7.2
+attrs==20.3.0
+Django==5.0.4
+django-fontawesome==1.0
+django-markdown2==0.3.1
+fontawesome==5.10.1.post1
+Jinja2==3.1.2
+requests==2.31.0
+sqlparse==0.4.4
+Werkzeug==3.0.1
