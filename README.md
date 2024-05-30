@@ -1,5 +1,5 @@
 # CoordiGO
-Video Demo: https://youtu.be/HA_U1ulXD5Y
+Video Demo: https://youtu.be/CQBcNjieBUU
 
 ## Distinctiveness and Complexity
 **Distinctiveness** CoordiGO is unique in its provision of a dynamic interface for creating, customizing, and managing Graphic Organizers. This focus goes beyond general assignment submission platforms by offering tools specifically designed for GOs, making it an innovative solution in educational technologies. 
